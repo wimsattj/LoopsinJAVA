@@ -7,7 +7,31 @@
 
 export function getClientsWithWrongBalance(array) {
   // Your code goes here...
-
+  let money = [];
+  let sumDeposits = 0;
+  let sumWithdrawals = 0;
+  let wrong = false;
+  for (let i = 0; i < array.length ; i++ ) {
+     sumDeposits = 0;
+     sumWithdrawals = 0;
+      if (array[i].hasOwnProperty('deposits')) {
+        for (let j = 0 ; j < array[i].deposits.length ; j++){
+            sumDeposits = sumDeposits + array[i].deposits[j] ;
+        }
+      }
+      if (array[i].hasOwnProperty('withdrawals')) {
+        for (let j = 0 ; j < array[i].withdrawals.length ; j++){
+            sumWithdrawals = sumWithdrawals + array[i].withdrawals[j] ;
+        }
+      }
+      if (array[i].hasOwnProperty('balance')) {
+        if (array[i].balance == (sumDeposits - sumWithdrawals)) {
+          console.log('correct balance');
+        } else {money.push(array[i])}
+      }
+      
+    }
+  return (money);
 }
 
 
