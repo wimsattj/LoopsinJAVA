@@ -6,8 +6,23 @@
 
 export function getAllWithdrawals(array) {
   // Your code goes here...
-
+  let money = [];
+  let sum = 0;
+  for (let i = 0; i < array.length ; i++ ) {
+      if (array[i].withdrawals == 0)  {
+        money.push(0);
+      } else if (array[i].hasOwnProperty('withdrawals')) {
+        sum = 0;
+        for (let j = 0 ; j < array[i].withdrawals.length ; j++){
+          sum = sum + array[i].withdrawals[j];
+        }
+        money.push(sum);
+      }
+        else { money.push(0)}
+    }
+  return (money);
 }
+
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-11"

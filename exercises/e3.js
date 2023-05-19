@@ -10,7 +10,11 @@
 
 export function getAverage(array) {
   // Your code goes here...
-
+  var sum = 0;
+  for (var i = 0; i < array.length; i++){
+    sum = array[i] + sum;
+  }
+  return(Math.floor(sum / array.length));
 }
 
 
@@ -23,7 +27,13 @@ export function getAverage(array) {
 
 export function getStringSum(str) {
   // Your code goes here...
-
+  let N = 0;
+  for (var i = 0; i < (str.length); i++) {
+    if (isNaN(str.charAt(i))) {} else {
+      N = N + Number(str.charAt(i));
+    }
+  }
+  return (Number(N));
 }
 
 
